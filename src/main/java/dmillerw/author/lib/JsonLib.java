@@ -1,7 +1,7 @@
-package dmillerw.json.lib;
+package dmillerw.author.lib;
 
 import com.google.gson.*;
-import dmillerw.json.client.data.widget.WidgetContainer;
+import dmillerw.author.client.data.widget.WidgetContainer;
 
 /**
  * @author dmillerw

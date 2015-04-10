@@ -1,13 +1,13 @@
-package dmillerw.json.common;
+package dmillerw.author.common;
 
 import com.google.common.collect.Lists;
-import dmillerw.json.common.data.Book;
-import dmillerw.json.client.data.Page;
-import dmillerw.json.client.data.Template;
-import dmillerw.json.client.data.widget.WidgetContainer;
-import dmillerw.json.client.data.widget.Widget;
-import dmillerw.json.lib.ExtensionFilter;
-import dmillerw.json.lib.JsonLib;
+import dmillerw.author.common.data.Book;
+import dmillerw.author.client.data.Page;
+import dmillerw.author.client.data.Template;
+import dmillerw.author.client.data.widget.WidgetContainer;
+import dmillerw.author.client.data.widget.Widget;
+import dmillerw.author.lib.ExtensionFilter;
+import dmillerw.author.lib.JsonLib;
 
 import java.io.File;
 import java.io.FileReader;

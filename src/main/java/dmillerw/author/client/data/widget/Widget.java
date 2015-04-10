@@ -1,12 +1,12 @@
-package dmillerw.json.client.data.widget;
+package dmillerw.author.client.data.widget;
 
 import com.google.common.collect.Maps;
-import dmillerw.json.client.data.Page;
-import dmillerw.json.client.data.widget.impl.WidgetImage;
-import dmillerw.json.client.data.widget.impl.WidgetItem;
-import dmillerw.json.client.data.widget.impl.WidgetTextBox;
-import dmillerw.json.client.data.widget.impl.WidgetTextLabel;
-import dmillerw.json.client.gui.GuiBook;
+import dmillerw.author.client.data.Page;
+import dmillerw.author.client.data.widget.impl.WidgetImage;
+import dmillerw.author.client.data.widget.impl.WidgetItem;
+import dmillerw.author.client.data.widget.impl.WidgetTextBox;
+import dmillerw.author.client.data.widget.impl.WidgetTextLabel;
+import dmillerw.author.client.gui.GuiBook;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package dmillerw.json.client.gui;
+package dmillerw.author.client.gui;
 
 import net.minecraft.client.gui.GuiScreen;
 

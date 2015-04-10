@@ -1,6 +1,6 @@
-package dmillerw.json.common.item;
+package dmillerw.author.common.item;
 
-import dmillerw.json.common.data.Book;
+import dmillerw.author.common.data.Book;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,6 +1,6 @@
-package dmillerw.json.client.data;
+package dmillerw.author.client.data;
 
-import dmillerw.json.client.data.widget.WidgetContainer;
+import dmillerw.author.client.data.widget.WidgetContainer;
 
 /**
  * @author dmillerw

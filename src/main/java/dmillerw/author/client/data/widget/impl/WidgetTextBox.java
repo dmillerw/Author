@@ -1,22 +1,22 @@
-package dmillerw.json.client.data.widget.impl;
+package dmillerw.author.client.data.widget.impl;
 
-import dmillerw.json.client.data.widget.Widget;
-import dmillerw.json.client.gui.GuiBook;
-import dmillerw.json.lib.SafetyLib;
+import dmillerw.author.client.data.widget.Widget;
+import dmillerw.author.client.gui.GuiBook;
+import dmillerw.author.lib.SafetyLib;
 
 import java.util.Map;
 
 /**
  * @author dmillerw
  */
-public class WidgetImage extends Widget {
+public class WidgetTextBox extends Widget {
 
     public int x;
     public int y;
     public int width;
     public int height;
 
-    public String path;
+    public String text;
 
     @Override
     public void draw(GuiBook guiBook) {
@@ -29,6 +29,6 @@ public class WidgetImage extends Widget {
         this.y = SafetyLib.getAsInt(data, "y", 0);
         this.width = SafetyLib.getAsInt(data, "w", 0);
         this.height = SafetyLib.getAsInt(data, "h", 0);
-        this.path = SafetyLib.getAsString(data, "path", "", false);
+        this.text = SafetyLib.getAsString(data, "text", "", true);
     }
 }

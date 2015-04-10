@@ -1,8 +1,8 @@
-package dmillerw.json.common.data;
+package dmillerw.author.common.data;
 
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.SerializedName;
-import dmillerw.json.client.data.Page;
+import dmillerw.author.client.data.Page;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package dmillerw.json.client;
+package dmillerw.author.client;
 
 import com.google.common.base.Charsets;
 import com.google.common.collect.Sets;
-import dmillerw.json.common.Loader;
+import dmillerw.author.common.Loader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.FolderResourcePack;
 
@@ -46,13 +46,13 @@ public class DummyResourcePack extends FolderResourcePack {
 
     @Override
     protected boolean hasResourceName(String resourceName) {
-        return super.hasResourceName(resourceName.replace("assets/json/", ""));
+        return super.hasResourceName(resourceName.replace("assets/author/", ""));
     }
 
     @Override
     protected InputStream getInputStreamByName(String resourceName) throws IOException {
         try {
-            return super.getInputStreamByName(resourceName.replace("assets/json/", ""));
+            return super.getInputStreamByName(resourceName.replace("assets/author/", ""));
         } catch (IOException ex) {
             if ("pack.mcmeta".equals(resourceName)) {
                 return new ByteArrayInputStream(("{\n" +
@@ -69,6 +69,6 @@ public class DummyResourcePack extends FolderResourcePack {
 
     @Override
     public Set getResourceDomains() {
-        return Sets.newHashSet("json");
+        return Sets.newHashSet("author");
     }
 }

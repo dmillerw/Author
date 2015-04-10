@@ -1,8 +1,8 @@
-package dmillerw.json.client.data.widget.impl;
+package dmillerw.author.client.data.widget.impl;
 
-import dmillerw.json.client.data.widget.Widget;
-import dmillerw.json.client.gui.GuiBook;
-import dmillerw.json.lib.SafetyLib;
+import dmillerw.author.client.data.widget.Widget;
+import dmillerw.author.client.gui.GuiBook;
+import dmillerw.author.lib.SafetyLib;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
-package dmillerw.json.client.data.widget;
+package dmillerw.author.client.data.widget;
 
 import com.google.common.collect.Maps;
 import com.google.gson.*;
-import dmillerw.json.lib.JsonLib;
+import dmillerw.author.lib.JsonLib;
 
 import java.lang.reflect.Type;
 import java.util.Map;

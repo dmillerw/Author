@@ -1,4 +1,4 @@
-package dmillerw.json.lib;
+package dmillerw.author.lib;
 
 import java.util.Map;
 

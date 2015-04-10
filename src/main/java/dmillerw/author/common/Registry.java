@@ -1,8 +1,8 @@
-package dmillerw.json.common;
+package dmillerw.author.common;
 
 import com.google.common.collect.Maps;
-import dmillerw.json.common.data.Book;
-import dmillerw.json.client.data.Template;
+import dmillerw.author.common.data.Book;
+import dmillerw.author.client.data.Template;
 
 import java.util.Collection;
 import java.util.Map;

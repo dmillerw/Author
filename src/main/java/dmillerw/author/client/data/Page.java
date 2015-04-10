@@ -1,6 +1,6 @@
-package dmillerw.json.client.data;
+package dmillerw.author.client.data;
 
-import dmillerw.json.client.data.widget.Widget;
+import dmillerw.author.client.data.widget.Widget;
 
 import java.util.List;
 import java.util.Map;
