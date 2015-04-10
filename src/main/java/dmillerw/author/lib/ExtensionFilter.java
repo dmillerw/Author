@@ -8,7 +8,7 @@ import java.io.FilenameFilter;
  */
 public class ExtensionFilter implements FilenameFilter {
 
-    public static final ExtensionFilter JSON = new ExtensionFilter("author");
+    public static final ExtensionFilter JSON = new ExtensionFilter("json");
     public static final ExtensionFilter OGG = new ExtensionFilter("ogg");
     public static final ExtensionFilter TXT = new ExtensionFilter("txt");
 

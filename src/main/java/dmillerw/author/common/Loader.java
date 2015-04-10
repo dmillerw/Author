@@ -8,6 +8,7 @@ import dmillerw.author.client.data.widget.WidgetContainer;
 import dmillerw.author.client.data.widget.Widget;
 import dmillerw.author.lib.ExtensionFilter;
 import dmillerw.author.lib.JsonLib;
+import dmillerw.author.lib.Log;
 
 import java.io.File;
 import java.io.FileReader;
@@ -24,13 +25,14 @@ public class Loader {
     public static File resourceFolder;
 
     public static void initialize(File config) {
-        rootFolder = _new(config, "JSONcumentation");
+        rootFolder = _new(config, "Author");
         bookFolder = _new(rootFolder, "book");
         templateFolder = _new(rootFolder, "template");
         pageFolder = _new(rootFolder, "page");
         resourceFolder = _new(rootFolder, "resources");
 
         for (File file : ExtensionFilter.JSON.listFiles(bookFolder)) {
+            System.out.println(file.getName());
             Registry.registerBook(parseBook(file));
         }
 
@@ -55,6 +57,8 @@ public class Loader {
             }
 
             if (owner != null) {
+                page.guiWidth = page.template.guiWidth;
+                page.guiHeight = page.template.guiHeight;
                 page.template.widgets = null;
                 page.variables = null;
 
@@ -85,6 +89,7 @@ public class Loader {
 
     private static <T> T parse(File file, Class<T> type) {
         try {
+            Log.info("Parsing " + file.getName() + " as type " + type.getSimpleName());
             return JsonLib.gson().fromJson(new FileReader(file), type);
         } catch (Exception ex) {
             return null;

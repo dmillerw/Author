@@ -13,5 +13,8 @@ public class Template {
     public int width;
     public int height;
 
+    public int guiWidth;
+    public int guiHeight;
+    
     public WidgetContainer[] widgets;
 }
