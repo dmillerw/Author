@@ -94,7 +94,7 @@ public class Loader {
 
     private static <T> T parse(File file, Class<T> type) {
         try {
-            Log.info("Parsing " + file.getName() + " as " + type.getSimpleName());
+            Log.info("Parsing " + file.getName() + " as type " + type.getSimpleName());
             return JsonLib.gson().fromJson(new FileReader(file), type);
         } catch (Exception ex) {
             return null;
