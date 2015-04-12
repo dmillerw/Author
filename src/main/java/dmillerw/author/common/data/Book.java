@@ -12,14 +12,16 @@ import java.util.List;
 public class Book {
 
     public String ident;
-    public String name = "";
-    @SerializedName("lore")
-    public String[] loreText = new String[0];
-    public String icon = "";
+    @SerializedName("background_image")
+    public String backgroundImage;
+    @SerializedName("item_icon")
+    public String itemIcon = "";
+    public String[] pages;
 
-    private List<Page> associatedPages = Lists.newArrayList();
+    @SerializedName("gui_width")
+    public int guiWidth;
+    @SerializedName("gui_height")
+    public int guiHeight;
 
-    public void attachPage(Page page) {
-        associatedPages.add(page);
-    }
+    public List<Page> attachedPages = Lists.newArrayList();
 }

@@ -5,6 +5,7 @@
 # Except These
 !/.gitignore
 !/src/
+!/example/
 !/gradle/
 !/gradlew
 !/gradlew.bat

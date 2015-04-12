@@ -17,7 +17,7 @@ public class Registry {
 
     public static void registerBook(Book book) {
         if (bookMap.containsKey(book.ident)) {
-            throw new IllegalStateException("Duplicate book type found: " + book.ident);
+            throw new IllegalStateException("Duplicate book ident found: " + book.ident);
         }
         bookMap.put(book.ident, book);
     }
@@ -32,10 +32,10 @@ public class Registry {
     }
 
     public static void registerTemplate(Template template) {
-        if (templateMap.containsKey(template.type)) {
-            throw new IllegalStateException("Duplicate template type found: " + template.type);
+        if (templateMap.containsKey(template.ident)) {
+            throw new IllegalStateException("Duplicate template ident found: " + template.ident);
         }
-        templateMap.put(template.type, template);
+        templateMap.put(template.ident, template);
     }
 
     public static Template getTemplate(String ident) {

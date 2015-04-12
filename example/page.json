@@ -1,0 +1,7 @@
+{
+  "ident": "page",
+  "type": "TEMPLATE",
+  "variables": {
+    "x": 5
+  }
+}

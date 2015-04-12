@@ -7,14 +7,6 @@ import dmillerw.author.client.data.widget.WidgetContainer;
  */
 public class Template {
 
-    public String type;
-    public String background;
-
-    public int width;
-    public int height;
-
-    public int guiWidth;
-    public int guiHeight;
-    
+    public String ident;
     public WidgetContainer[] widgets;
 }

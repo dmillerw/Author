@@ -24,7 +24,7 @@ public class Widget {
         }
 
         if (widget == null) {
-            throw new IllegalStateException(widgetContainer.type + " isn't a valid widget type!");
+            throw new IllegalStateException(widgetContainer.type + " isn't a valid widget ident!");
         }
 
         Map<String, Object> data = Maps.newHashMap();

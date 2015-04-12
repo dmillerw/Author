@@ -1,17 +1,19 @@
 package dmillerw.author.common;
 
 import com.google.common.collect.Lists;
-import dmillerw.author.common.data.Book;
+import com.google.common.collect.Maps;
 import dmillerw.author.client.data.Page;
 import dmillerw.author.client.data.Template;
-import dmillerw.author.client.data.widget.WidgetContainer;
 import dmillerw.author.client.data.widget.Widget;
+import dmillerw.author.client.data.widget.WidgetContainer;
+import dmillerw.author.common.data.Book;
 import dmillerw.author.lib.ExtensionFilter;
 import dmillerw.author.lib.JsonLib;
 import dmillerw.author.lib.Log;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.Map;
 
 /**
  * @author dmillerw
@@ -31,10 +33,7 @@ public class Loader {
         pageFolder = _new(rootFolder, "page");
         resourceFolder = _new(rootFolder, "resources");
 
-        for (File file : ExtensionFilter.JSON.listFiles(bookFolder)) {
-            System.out.println(file.getName());
-            Registry.registerBook(parseBook(file));
-        }
+        Map<String, Page> pages = Maps.newHashMap();
 
         for (File file : ExtensionFilter.JSON.listFiles(templateFolder)) {
             Registry.registerTemplate(parseTemplate(file));
@@ -43,7 +42,6 @@ public class Loader {
         for (File file : ExtensionFilter.JSON.listFiles(pageFolder)) {
             Page page = parsePage(file);
             Template template = Registry.getTemplate(page.type);
-            Book owner = Registry.getBook(page.book);
 
             if (template != null) {
                 page.template = template;
@@ -56,14 +54,21 @@ public class Loader {
                 throw new IllegalStateException("Page has invalid type: " + page.type);
             }
 
-            if (owner != null) {
-                page.guiWidth = page.template.guiWidth;
-                page.guiHeight = page.template.guiHeight;
-                page.template.widgets = null;
-                page.variables = null;
+            page.template.widgets = null;
+            page.variables = null;
 
-                owner.attachPage(page);
+            pages.put(page.ident, page);
+        }
+
+        for (File file : ExtensionFilter.JSON.listFiles(bookFolder)) {
+            Book book = parseBook(file);
+            for (String str : book.pages) {
+                Page page = pages.get(str);
+                if (page != null) {
+                    book.attachedPages.add(page);
+                }
             }
+            Registry.registerBook(book);
         }
     }
 
@@ -89,7 +94,7 @@ public class Loader {
 
     private static <T> T parse(File file, Class<T> type) {
         try {
-            Log.info("Parsing " + file.getName() + " as type " + type.getSimpleName());
+            Log.info("Parsing " + file.getName() + " as " + type.getSimpleName());
             return JsonLib.gson().fromJson(new FileReader(file), type);
         } catch (Exception ex) {
             return null;

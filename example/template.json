@@ -1,0 +1,10 @@
+{
+  "type": "TEMPLATE",
+  "widgets": [
+    {
+      "type": "TEXT_LABEL",
+      "x": "#x",
+      "y": 10
+    }
+  ]
+}

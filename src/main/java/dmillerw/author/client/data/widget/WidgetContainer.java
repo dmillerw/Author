@@ -17,7 +17,7 @@ public class WidgetContainer {
 
     @Override
     public String toString() {
-        return "{type: " + type + ", data: " + data + "}";
+        return "{ident: " + type + ", data: " + data + "}";
     }
 
     public static class Deserializer implements JsonDeserializer<WidgetContainer> {
@@ -29,7 +29,7 @@ public class WidgetContainer {
             }
 
             JsonObject object = json.getAsJsonObject();
-            JsonElement type = object.get("type");
+            JsonElement type = object.get("ident");
 
             if (type == null) {
                 throw new JsonParseException("");
@@ -41,7 +41,7 @@ public class WidgetContainer {
             Map<String, Object> data = Maps.newHashMap();
 
             for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
-                if (!("type".equals(entry.getKey()))) {
+                if (!("ident".equals(entry.getKey()))) {
                     data.put(entry.getKey(), JsonLib.convert(entry.getValue()));
                 }
             }
