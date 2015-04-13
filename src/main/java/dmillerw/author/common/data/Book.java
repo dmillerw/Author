@@ -1,10 +1,7 @@
 package dmillerw.author.common.data;
 
-import com.google.common.collect.Lists;
 import com.google.gson.annotations.SerializedName;
 import dmillerw.author.client.data.Page;
-
-import java.util.List;
 
 /**
  * @author dmillerw
@@ -23,5 +20,11 @@ public class Book {
     @SerializedName("gui_height")
     public int guiHeight;
 
-    public List<Page> attachedPages = Lists.newArrayList();
+    public boolean indexed = false;
+
+    public Page[] attachedPages = new Page[0];
+
+    public Page getPage(int i) {
+        return attachedPages[i];
+    }
 }

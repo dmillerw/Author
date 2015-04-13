@@ -11,9 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.List;
-
 /**
  * @author dmillerw
  */
@@ -34,11 +31,6 @@ public class ItemJSONBook extends Item {
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List list, boolean debug) {
-        Collections.addAll(list, book.loreText);
-    }
-
-    @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         if (world.isRemote) {
             entityPlayer.openGui(Author.instance, 0, world, 0, 0, 0);
@@ -53,6 +45,6 @@ public class ItemJSONBook extends Item {
 
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-        icon = (book.icon == null || book.icon.isEmpty()) ? Items.book.getIconFromDamage(0) : iconRegister.registerIcon("Author:" + book.icon);
+        icon = (book.itemIcon == null || book.itemIcon.isEmpty()) ? Items.book.getIconFromDamage(0) : iconRegister.registerIcon("author:" + book.itemIcon);
     }
 }

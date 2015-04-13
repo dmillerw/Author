@@ -29,17 +29,18 @@ public class WidgetTextBox extends Widget {
     public String[] paddedText;
 
     @Override
-    public void draw(GuiBook guiBook) {
-        if (paddedText == null) {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (String str : text) {
-                for (String split : smallFontRenderer.listFormattedStringToWidth(str, width - (padding * 2))) {
-                    stringBuilder.append(split).append("\n");
-                }
+    public void onGuiOpen(GuiBook guiBook) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String str : text) {
+            for (String split : smallFontRenderer.listFormattedStringToWidth(str, width - (padding * 2))) {
+                stringBuilder.append(split).append("\n");
             }
-            paddedText = stringBuilder.toString().split("\n");
         }
+        paddedText = stringBuilder.toString().split("\n");
+    }
 
+    @Override
+    public void draw(GuiBook guiBook, int mouseX, int mouseY, float partial) {
         for (int i=0; i<paddedText.length; i++) {
             String str = paddedText[i];
             smallFontRenderer.drawString(str, x + padding, y + (smallFontRenderer.FONT_HEIGHT * i), 0x000000);

@@ -65,10 +65,12 @@ public class WidgetItem extends Widget {
     private ItemStack itemStack;
 
     @Override
-    public void draw(GuiBook guiBook) {
-        if (itemStack == null) {
-            itemStack = new ItemStack(GameData.getItemRegistry().getObject(item), 1, damage);
-        }
+    public void onGuiOpen(GuiBook guiBook) {
+        itemStack = new ItemStack(GameData.getItemRegistry().getObject(item), 1, damage);
+    }
+
+    @Override
+    public void draw(GuiBook guiBook, int mouseX, int mouseY, float partial) {
         renderItem(x, y, 0, itemStack);
     }
 

@@ -21,7 +21,7 @@ public class WidgetTextLabel extends Widget {
     public String text;
 
     @Override
-    public void draw(GuiBook guiBook) {
+    public void draw(GuiBook guiBook, int mouseX, int mouseY, float partial) {
         if (center) {
             smallFontRenderer.drawString(text, x - (smallFontRenderer.getStringWidth(text) / 2), y, 0x000000);
         } else {

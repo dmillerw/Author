@@ -62,10 +62,14 @@ public class Loader {
 
         for (File file : ExtensionFilter.JSON.listFiles(bookFolder)) {
             Book book = parseBook(file);
-            for (String str : book.pages) {
-                Page page = pages.get(str);
-                if (page != null) {
-                    book.attachedPages.add(page);
+            if (book.pages != null) {
+                book.attachedPages = new Page[book.pages.length];
+                for (int i=0; i<book.pages.length; i++) {
+                    String str = book.pages[i];
+                    Page page = pages.get(str);
+                    if (page != null) {
+                        book.attachedPages[i] = page;
+                    }
                 }
             }
             Registry.registerBook(book);

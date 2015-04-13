@@ -65,7 +65,15 @@ public class Widget {
         widgetClassMap.put("IMAGE", WidgetImage.class);
     }
 
-    public void draw(GuiBook guiBook) {
+    public void onGuiOpen(GuiBook guiBook) {
+
+    }
+
+    public void onGuiClose(GuiBook guiBook) {
+
+    }
+
+    public void draw(GuiBook guiBook, int mouseX, int mouseY, float partial) {
 
     }
 
