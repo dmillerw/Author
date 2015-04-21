@@ -1,6 +1,6 @@
 package dmillerw.author.client.data;
 
-import dmillerw.author.client.data.widget.WidgetContainer;
+import com.google.gson.JsonObject;
 
 /**
  * @author dmillerw
@@ -8,5 +8,5 @@ import dmillerw.author.client.data.widget.WidgetContainer;
 public class Template {
 
     public String ident;
-    public WidgetContainer[] widgets;
+    public JsonObject[] widgetData;
 }

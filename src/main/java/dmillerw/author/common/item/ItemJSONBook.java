@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class ItemJSONBook extends Item {
 
     private IIcon icon;
-    private Book book;
+    public final Book book;
 
     public ItemJSONBook(Book book) {
         super();
@@ -45,6 +45,6 @@ public class ItemJSONBook extends Item {
 
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-        icon = (book.itemIcon == null || book.itemIcon.isEmpty()) ? Items.book.getIconFromDamage(0) : iconRegister.registerIcon("author:" + book.itemIcon);
+        icon = (book.resources.itemIcon == null || book.resources.itemIcon.isEmpty()) ? Items.book.getIconFromDamage(0) : iconRegister.registerIcon("author:" + book.resources.itemIcon);
     }
 }

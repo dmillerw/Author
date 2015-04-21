@@ -1,39 +1,23 @@
 package dmillerw.author.client.data;
 
-import dmillerw.author.client.data.widget.Widget;
-import dmillerw.author.client.gui.GuiBook;
-
-import java.util.List;
-import java.util.Map;
+import com.google.gson.JsonObject;
+import dmillerw.author.common.Registry;
 
 /**
  * @author dmillerw
  */
 public class Page {
 
-    public String ident;
-    public String type;
-    public Map<String, Object> variables;
+    public static Page[] construct(String type, JsonObject object) {
+        if (type.equals("MARKDOWN")) {
+            // Parse as markdown, which allows for continuous pages
+        } else if (type.equals("FREEFORM")) {
+            // Similar to a template, but all attributes are set in the entry object
+        } else {
+            // Configure based off the template and the data
 
-    public Template template;
-
-    public List<Widget> widgets;
-
-    public void onGuiOpen(GuiBook guiBook) {
-        for (Widget widget : widgets) {
-            widget.onGuiOpen(guiBook);
+            Template template = Registry.getTemplate(type);
         }
-    }
-
-    public void drawPage(GuiBook guiBook, int mouseX, int mouseY, float partial) {
-        for (Widget widget : widgets) {
-            widget.draw(guiBook, mouseX, mouseY, partial);
-        }
-    }
-
-    public void onGuiClose(GuiBook guiBook) {
-        for (Widget widget : widgets) {
-            widget.onGuiClose(guiBook);
-        }
+        return new Page[0];
     }
 }

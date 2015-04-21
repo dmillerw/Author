@@ -1,7 +1,6 @@
 package dmillerw.author.lib;
 
 import com.google.gson.*;
-import dmillerw.author.client.data.widget.WidgetContainer;
 
 /**
  * @author dmillerw
@@ -13,11 +12,6 @@ public class JsonLib {
     public static Gson gson() {
         if (gson == null) {
             GsonBuilder gsonBuilder = new GsonBuilder();
-
-            // Deserializer
-            gsonBuilder.registerTypeAdapter(WidgetContainer.class, new WidgetContainer.Deserializer());
-
-            // Serializer
 
             gsonBuilder.setPrettyPrinting();
 

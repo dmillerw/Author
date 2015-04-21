@@ -1,61 +1,54 @@
 package dmillerw.author.client.gui;
 
-import dmillerw.author.client.data.Page;
 import dmillerw.author.common.data.Book;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 /**
  * @author dmillerw
  */
 public class GuiBook extends GuiScreen {
 
-    private Book book;
+    private final Book book;
 
-    private Page currentPage;
-    private int pageIndex;
+    private final ResourceLocation backgroundImage;
 
     private int guiLeft;
     private int guiTop;
 
-    private ResourceLocation backgroundImage;
-
     public GuiBook(Book book) {
         this.book = book;
-        this.currentPage = book.getPage(0);
-        this.pageIndex = 0;
-        this.backgroundImage = new ResourceLocation("author:" + book.backgroundImage);
+        this.backgroundImage = new ResourceLocation("author:" + book.resources.guiBackground);
     }
 
     @Override
     public void initGui() {
         super.initGui();
 
-        this.guiLeft = (this.width - book.guiWidth) / 2;
-        this.guiTop = (this.height - book.guiHeight) / 2;
+        this.guiLeft = (this.width - book.dimensions.width) / 2;
+        this.guiTop = (this.height - book.dimensions.height) / 2;
 
-        if (currentPage != null) {
-            currentPage.onGuiOpen(this);
-        }
+//        if (currentPage != null) {
+//            currentPage.onGuiOpen(this);
+//        }
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partial) {
         super.drawScreen(mouseX, mouseY, partial);
 
-        if (currentPage != null) {
-            GL11.glColor4f(1, 1, 1, 1);
+//        if (currentPage != null) {
+//            GL11.glColor4f(1, 1, 1, 1);
 
             mc.renderEngine.bindTexture(backgroundImage);
-            drawTexturedModalRect(guiLeft, guiTop, 0, 0, book.guiWidth, book.guiHeight);
+            drawTexturedModalRect(guiLeft, guiTop, 0, 0, book.dimensions.width, book.dimensions.height);
 
-            GL11.glPushMatrix();
-            GL11.glTranslated(guiLeft, guiTop, zLevel);
-            currentPage.drawPage(this, mouseX, mouseY, partial);
-            GL11.glPopMatrix();
-        }
+//            GL11.glPushMatrix();
+//            GL11.glTranslated(guiLeft, guiTop, zLevel);
+//            currentPage.drawPage(this, mouseX, mouseY, partial);
+//            GL11.glPopMatrix();
+//        }
     }
 
     public final void drawTexturedRectangle(int x, int y, int u, int v, int width, int height, int uvWidth, int uvHeight) {

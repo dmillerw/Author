@@ -1,8 +1,8 @@
 package dmillerw.author.common;
 
 import com.google.common.collect.Maps;
-import dmillerw.author.common.data.Book;
 import dmillerw.author.client.data.Template;
+import dmillerw.author.common.data.Book;
 
 import java.util.Collection;
 import java.util.Map;
@@ -15,11 +15,12 @@ public class Registry {
     private static final Map<String, Book> bookMap = Maps.newHashMap();
     private static final Map<String, Template> templateMap = Maps.newHashMap();
 
-    public static void registerBook(Book book) {
+    public static boolean registerBook(Book book) {
         if (bookMap.containsKey(book.ident)) {
-            throw new IllegalStateException("Duplicate book type found: " + book.ident);
+            return false;
         }
         bookMap.put(book.ident, book);
+        return true;
     }
 
     public static Book getBook(String ident) {
@@ -31,11 +32,12 @@ public class Registry {
         return values.toArray(new Book[values.size()]);
     }
 
-    public static void registerTemplate(Template template) {
+    public static boolean registerTemplate(Template template) {
         if (templateMap.containsKey(template.ident)) {
-            throw new IllegalStateException("Duplicate template type found: " + template.ident);
+            return false;
         }
         templateMap.put(template.ident, template);
+        return true;
     }
 
     public static Template getTemplate(String ident) {
